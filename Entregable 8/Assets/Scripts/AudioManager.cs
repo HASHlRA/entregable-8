@@ -5,12 +5,11 @@ using TMPro;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource audioSource
+    private AudioSource audioSource;
     public GameObject title;
     private int audioIndex;
     public AudioClip[] audioClips;
     public string[] audioNames;
-    private int audioIndex = 0;
 
 
     void Start()
@@ -102,8 +101,7 @@ public class AudioManager : MonoBehaviour
         // Inserta el clip correspondiente al Index
         audioSource.clip = audioClips[audioIndex];
 
-        // Detiene y reproduce la canción
-        StopAudio();
+        // reproduce la canción
         PlayAudio();
 
         // Muestra el nombre de la canción
