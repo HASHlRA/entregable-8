@@ -6,7 +6,7 @@ using TMPro;
 public class AudioManager : MonoBehaviour
 {
     private AudioSource audioSource;
-    public GameObject title;
+    public GameObject Title;
     private int audioIndex;
     public AudioClip[] audioClips;
     public string[] audioNames;
@@ -30,8 +30,8 @@ public class AudioManager : MonoBehaviour
         // Aumenta el index
         audioIndex++;
 
-        // Si el Index es mayor o igual al númera de clips en total
-        if (audioIndex >= audioClips.Lenght)
+        // Si el Index es mayor o igual al número de clips en total
+        if (audioIndex >= audioClips.Length)
         {
             // Se reinicia a 0
             audioIndex = 0;
@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
         if (audioIndex < 0)
         {
             // Número total de clips
-            audioIndex = audioClips.Lenght - 1;
+            audioIndex = audioClips.Length - 1;
         }
 
         // Reproduce la canción
@@ -66,6 +66,9 @@ public class AudioManager : MonoBehaviour
         {
             // Reproduce la canción
             audioSource.Play();
+
+            // Muestra el título
+            ShowAudioName();
         }
     }
 
@@ -79,7 +82,7 @@ public class AudioManager : MonoBehaviour
     public void RandomAudio()
     {
         // Obtiene el valor aleatorio de las canciones
-        int randomIndex = Random.Range(0, audioClips.Lenght);
+        int randomIndex = Random.Range(0, audioClips.Length);
 
         // Index recibe el valor aleatorio
         audioIndex = randomIndex;
@@ -92,7 +95,7 @@ public class AudioManager : MonoBehaviour
     private void ShowAudioName()
     {
         // Cambia el título dependiendo de la canción
-        title.GetComponent<TextMeshProUGUI>().text = audioNames[audioIndex];
+        Title.GetComponent<TextMeshProUGUI>().text = audioNames[audioIndex];
     }
 
     // Reproduce la canción
